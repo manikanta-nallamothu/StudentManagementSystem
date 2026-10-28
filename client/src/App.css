@@ -1,0 +1,990 @@
+
+/* ========================================
+   GLOBAL STYLES
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #172033;
+  background: #f5f8fb;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* ========================================
+   DASHBOARD
+======================================== */
+
+.dashboard {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0 26px 35px;
+  background: #f5f8fb;
+}
+
+/* ========================================
+   GREEN HEADER
+======================================== */
+
+.app-title-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  width: 900px;
+  min-height: 136px;
+  margin: 20px 800px 28px;
+  padding: 25px 30px;
+
+  background: #0857c6;
+  color: #ffffff;
+  box-shadow: 0 5px 16px rgba(16, 185, 90, 0.12);
+  text-align: center;
+  border-radius: 15px 15px;
+}
+
+.app-title-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 64px;
+  height: 64px;
+
+  font-size: 30px;
+  background: rgba(255, 255, 255, 0.17);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 13px;
+}
+
+.app-title-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-title-text h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 750;
+  letter-spacing: -0.8px;
+  line-height: 1.25;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-title-text p {
+  margin: 8px 0 0;
+  color: #eafff1;
+  font-size: 16px;
+}
+
+/* Hide the Dashboard heading */
+.dashboard-header {
+  display: none;
+}
+
+/* ========================================
+   STATISTICS CARDS
+======================================== */
+
+.stats-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  width: 100%;
+  margin: 25px 0 30px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 220px;
+  min-width: 220px;
+  min-height: 140px;
+  padding: 24px;
+
+  background: #ffffff;
+  border: 1px solid #dce6ef;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  text-align: center;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+}
+
+.stat-card h2 {
+  margin: 0 0 12px;
+  color: #64748b;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.stat-card p {
+  margin: 0;
+  color: #08b94e;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/* ========================================
+   DASHBOARD ACTIONS
+======================================== */
+
+.dashboard-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  width: 100%;
+  margin: 22px 0 30px;
+}
+
+.dashboard-actions button {
+  padding: 12px 20px;
+  color: #ffffff;
+  background: #2e08c6;
+  border: 1px solid #08c653;
+  border-radius: 9px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dashboard-actions button:hover {
+  background: #84bcfd;
+  border-color: #06a947;
+}
+
+/* ========================================
+   ALL STUDENTS SECTION
+======================================== */
+
+.dashboard-table-section {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dashboard-table-section h2 {
+  margin: 0 0 18px;
+  color: #172033;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* ========================================
+   SEARCH FORM
+======================================== */
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+  margin: 24px 0 28px;
+}
+
+.search-form input {
+  flex: 1;
+  min-width: 0;
+  height: 56px;
+  padding: 0 20px;
+
+  color: #172033;
+  background: #ffffff;
+  border: 1px solid #dce6ef;
+  border-radius: 13px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.06);
+
+  font-size: 17px;
+}
+
+.search-form input::placeholder {
+  color: #91a2ba;
+}
+
+.search-form input:focus {
+  border-color: #08c653;
+  box-shadow: 0 0 0 3px rgba(8, 198, 83, 0.1);
+}
+
+.search-form button {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 10px 18px;
+
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #dce6ef;
+  border-radius: 9px;
+
+  font-size: 15px;
+}
+
+.search-form button:hover {
+  color: #087f3a;
+  border-color: #08c653;
+  background: #f0fdf4;
+}
+
+/* ========================================
+   TABLE CONTAINER
+======================================== */
+
+.table-wrapper {
+  width: 100%;
+  max-height: 450px;
+  overflow: auto;
+  margin: 0 auto;
+
+  background: #ffffff;
+  border: 1px solid #e0e8f0;
+  border-radius: 12px;
+}
+
+/* ========================================
+   STUDENT TABLE
+======================================== */
+
+.dashboard table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+  background: #ffffff;
+}
+
+.dashboard th,
+.dashboard td {
+  padding: 17px 14px;
+  border-bottom: 1px solid #edf1f6;
+
+  font-size: 17px;
+  text-align: left;
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+}
+
+.dashboard th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  color: #64748b;
+  background: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.dashboard td {
+  color: #334155;
+}
+
+.dashboard tbody tr:hover {
+  background: #f8fafc;
+}
+
+.dashboard tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ========================================
+   EDIT AND DELETE BUTTONS
+======================================== */
+
+.dashboard td button {
+  margin: 3px;
+  padding: 9px 14px;
+
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #dce6ef;
+  border-radius: 8px;
+
+  font-size: 15px;
+}
+
+.dashboard td button:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.dashboard td .delete-button {
+  color: #e11d48;
+  background: #ffffff;
+  border-color: #fecdd3;
+}
+
+.dashboard td .delete-button:hover {
+  background: #fff1f2;
+  border-color: #fb7185;
+}
+
+/* ========================================
+   SECONDARY BUTTON
+======================================== */
+
+.secondary-button {
+  padding: 10px 18px;
+
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #dce6ef;
+  border-radius: 9px;
+
+  font-size: 15px;
+}
+
+.secondary-button:hover {
+  color: #087f3a;
+  background: #f0fdf4;
+  border-color: #08c653;
+}
+
+/* ========================================
+   REGISTRATION PAGE
+======================================== */
+
+.registration-page {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 100vh;
+  padding: 35px 20px;
+
+  background: #f5f8fb;
+}
+
+.registration-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 32px;
+
+  background: #ffffff;
+  border: 1px solid #e0e8f0;
+  border-radius: 17px;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.05);
+}
+
+.registration-card h1,
+.registration-card h2 {
+  margin: 0 0 24px;
+  color: #172033;
+  text-align: center;
+  font-size: 26px;
+}
+
+/* ========================================
+   REGISTRATION FORM
+======================================== */
+
+.registration-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.registration-card label {
+  display: block;
+  margin-bottom: 8px;
+
+  color: #334155;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.registration-card input,
+.registration-card select,
+.registration-card textarea {
+  width: 100%;
+  min-height: 54px;
+  padding: 13px 17px;
+
+  color: #172033;
+  background: #ffffff;
+  border: 1px solid #dce6ef;
+  border-radius: 13px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.05);
+
+  font-size: 16px;
+}
+
+.registration-card input:focus,
+.registration-card select:focus,
+.registration-card textarea:focus {
+  border-color: #08c653;
+  box-shadow: 0 0 0 3px rgba(8, 198, 83, 0.1);
+}
+
+.registration-card textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* ========================================
+   GENDER OPTIONS
+======================================== */
+
+.gender-options {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.gender-options label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.gender-options input {
+  width: auto;
+  min-height: auto;
+  box-shadow: none;
+}
+
+/* ========================================
+   REGISTRATION BUTTONS
+======================================== */
+
+.registration-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.registration-card button,
+.registration-actions button {
+  padding: 13px 22px;
+
+  color: #ffffff;
+  background: #2d4ff9;
+  border: 1px solid #0f0f0f;
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.registration-card button:hover,
+.registration-actions button:hover {
+  background: #06a947;
+  border-color: #06a947;
+}
+
+/* ========================================
+   SUCCESS AND ERROR MESSAGES
+======================================== */
+
+.success {
+  margin: 12px 0;
+  padding: 12px 15px;
+
+  color: #166534;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 9px;
+
+  font-size: 16px;
+}
+
+.error {
+  margin: 12px 0;
+  padding: 12px 15px;
+
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+
+  font-size: 16px;
+}
+
+/* ========================================
+   TABLET RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 900px) {
+  .dashboard {
+    padding: 0 20px 25px;
+  }
+
+  .app-title-header {
+    width: calc(100% + 40px);
+    min-height: 120px;
+    margin: 0 -20px 25px;
+    padding: 22px;
+  }
+
+  .app-title-text h1 {
+    font-size: clamp(25px, 4vw, 36px);
+  }
+
+  .dashboard-table-section {
+    width: 96%;
+  }
+
+  .dashboard th,
+  .dashboard td {
+    padding: 15px 11px;
+    font-size: 16px;
+  }
+
+  .dashboard th {
+    font-size: 13px;
+  }
+
+  .dashboard td button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* ========================================
+   MOBILE RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 600px) {
+  .dashboard {
+    padding: 0 12px 20px;
+  }
+
+  .app-title-header {
+    width: calc(100% + 24px);
+    min-height: 100px;
+    margin: 0 -12px 22px;
+    padding: 18px 12px;
+    gap: 10px;
+  }
+
+  .app-title-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 23px;
+  }
+
+  .app-title-text h1 {
+    font-size: clamp(19px, 5vw, 27px);
+    letter-spacing: -0.4px;
+  }
+
+  .app-title-text p {
+    font-size: 12px;
+  }
+
+  .stats-container {
+    gap: 12px;
+    margin: 20px 0 25px;
+  }
+
+  .stat-card {
+    flex: 1;
+    width: auto;
+    min-width: 120px;
+    min-height: 110px;
+    padding: 14px;
+  }
+
+  .stat-card h2 {
+    font-size: 15px;
+  }
+
+  .stat-card p {
+    font-size: 30px;
+  }
+
+  .dashboard-table-section {
+    width: 100%;
+  }
+
+  .dashboard-table-section h2 {
+    font-size: 24px;
+  }
+
+  .search-form {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0 20px;
+  }
+
+  .search-form input {
+    flex-basis: 100%;
+    height: 50px;
+    font-size: 16px;
+  }
+
+  .search-form button {
+    min-height: 40px;
+  }
+
+  .table-wrapper {
+    max-height: 450px;
+  }
+
+  .dashboard table {
+    min-width: 700px;
+  }
+
+  .dashboard th,
+  .dashboard td {
+    padding: 13px 10px;
+    font-size: 15px;
+  }
+
+  .dashboard th {
+    font-size: 12px;
+  }
+
+  .dashboard td button {
+    padding: 8px 11px;
+    font-size: 14px;
+  }
+
+  .registration-page {
+    padding: 20px 12px;
+  }
+
+  .registration-card {
+    padding: 22px 16px;
+  }
+
+  .registration-card h1,
+  .registration-card h2 {
+    font-size: 23px;
+  }
+
+  .registration-card label {
+    font-size: 16px;
+  }
+}
+
+/* ========================================
+   LARGER DASHBOARD OVERRIDES
+======================================== */
+
+.dashboard {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 36px 40px;
+}
+
+/* Larger green title header */
+.app-title-header {
+  min-height: 165px;
+  padding: 30px 40px;
+}
+
+.app-title-icon {
+  width: 68px;
+  height: 68px;
+  font-size: 38px;
+}
+
+.app-title-text h1 {
+  font-size: 48px;
+}
+
+/* Larger statistics cards */
+.stats-container {
+  gap: 30px;
+  margin: 35px 0 40px;
+}
+
+.stat-card {
+  width: 280px;
+  min-width: 280px;
+  min-height: 175px;
+  padding: 30px;
+  border-radius: 18px;
+}
+
+.stat-card h2 {
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+.stat-card p {
+  font-size: 46px;
+}
+
+/* Larger Add Student button */
+.dashboard-actions {
+  margin: 30px 0 40px;
+}
+
+.dashboard-actions button {
+  padding: 16px 28px;
+  font-size: 19px;
+  border-radius: 11px;
+}
+
+/* Wider student table and larger heading */
+.dashboard-table-section {
+  width: 95%;
+  max-width: 1600px;
+}
+
+.dashboard-table-section h2 {
+  font-size: 32px;
+  margin-bottom: 22px;
+}
+
+/* Larger search field */
+.search-form {
+  gap: 14px;
+  margin: 25px 0 30px;
+}
+
+.search-form input {
+  height: 64px;
+  padding: 0 22px;
+  font-size: 20px;
+}
+
+.search-form button {
+  min-height: 52px;
+  padding: 12px 22px;
+  font-size: 18px;
+}
+
+/* Larger student table */
+.dashboard th,
+.dashboard td {
+  padding: 23px 18px;
+  font-size: 20px;
+}
+
+.dashboard th {
+  font-size: 16px;
+  letter-spacing: 0.6px;
+}
+
+.dashboard td button {
+  padding: 11px 18px;
+  font-size: 17px;
+  border-radius: 10px;
+}
+
+/* Keep the layout usable on smaller screens */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 0 14px 25px;
+  }
+
+  .app-title-header {
+    min-height: 115px;
+    padding: 20px 16px;
+  }
+
+  .app-title-text h1 {
+    font-size: clamp(25px, 5vw, 36px);
+  }
+
+  .stat-card {
+    width: 190px;
+    min-width: 150px;
+    min-height: 130px;
+    padding: 18px;
+  }
+
+  .stat-card h2 {
+    font-size: 17px;
+  }
+
+  .stat-card p {
+    font-size: 34px;
+  }
+
+  .dashboard-table-section {
+    width: 100%;
+  }
+
+  .dashboard th,
+  .dashboard td {
+    padding: 15px 12px;
+    font-size: 16px;
+  }
+
+  .dashboard th {
+    font-size: 13px;
+  }
+}
+
+/* ========================================
+   LARGER STUDENT REGISTRATION FORM
+======================================== */
+
+.registration-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px 30px;
+}
+
+/* Increase the form width and spacing */
+.registration-card {
+  width: 100%;
+  max-width: 850px;
+  padding: 45px 50px;
+  border-radius: 20px;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.09);
+}
+
+/* Larger form heading */
+.registration-card h1,
+.registration-card h2 {
+  margin-bottom: 32px;
+  font-size: 34px;
+}
+
+/* More space between form fields */
+.registration-card form {
+  gap: 24px;
+}
+
+/* Larger field labels */
+.registration-card label {
+  margin-bottom: 10px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+/* Larger input fields */
+.registration-card input,
+.registration-card select,
+.registration-card textarea {
+  min-height: 62px;
+  padding: 16px 20px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+
+/* Larger text area, if used */
+.registration-card textarea {
+  min-height: 120px;
+}
+
+/* Gender radio buttons */
+.gender-options {
+  gap: 24px;
+}
+
+.gender-options label {
+  font-size: 18px;
+}
+
+.gender-options input {
+  min-height: auto;
+  width: 18px;
+  height: 18px;
+}
+
+/* Larger form buttons */
+.registration-actions {
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.registration-card button,
+.registration-actions button {
+  min-height: 54px;
+  padding: 15px 28px;
+  font-size: 18px;
+  border-radius: 11px;
+}
+
+/* Responsive layout for tablets and phones */
+@media (max-width: 600px) {
+  .registration-page {
+    padding: 20px 12px;
+  }
+
+  .registration-card {
+    max-width: 100%;
+    padding: 25px 18px;
+  }
+
+  .registration-card h1,
+  .registration-card h2 {
+    font-size: 26px;
+  }
+
+  .registration-card label {
+    font-size: 16px;
+  }
+
+  .registration-card input,
+  .registration-card select,
+  .registration-card textarea {
+    min-height: 52px;
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+
+  .registration-card button,
+  .registration-actions button {
+    min-height: 46px;
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+}
+/* Hide the app title on the Student Registration page */
+.registration-page .app-title-header {
+  display: none;
+}
