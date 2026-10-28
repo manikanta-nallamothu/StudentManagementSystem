@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/students";
+const API_URL = "https://student-management-api-dsyj.onrender.com/api/students";
 
 const emptyForm = {
   name: "",
