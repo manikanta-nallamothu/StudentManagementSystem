@@ -59,9 +59,10 @@ button {
   justify-content: space-between;
   gap: 20px;
 
-  width: 900px;
+  width: 100%;
+  max-width: 900px;
   min-height: 136px;
-  margin: 20px 800px 28px;
+  margin: 20px auto 28px;
   padding: 25px 30px;
 
   background: #0857c6;
@@ -229,7 +230,7 @@ button {
 }
 
 .search-form input {
-  flex: 1;
+  flex: 0 1 50%;
   min-width: 0;
   height: 56px;
   padding: 0 20px;
@@ -278,7 +279,8 @@ button {
 
 .table-wrapper {
   width: 100%;
-  max-height: 450px;
+  min-height: 350px;
+  max-height: 600px;
   overflow: auto;
   margin: 0 auto;
 
@@ -314,7 +316,7 @@ button {
   top: 0;
   z-index: 1;
 
-  color: #64748b;
+  color: #0f172a;
   background: #ffffff;
 
   font-size: 14px;
@@ -325,7 +327,7 @@ button {
 }
 
 .dashboard td {
-  color: #334155;
+  color: #475569;
 }
 
 .dashboard tbody tr:hover {
@@ -777,8 +779,8 @@ button {
 
 /* Wider student table and larger heading */
 .dashboard-table-section {
-  width: 95%;
-  max-width: 1600px;
+  width: 100%;
+  max-width: 1700px;
 }
 
 .dashboard-table-section h2 {
@@ -808,17 +810,20 @@ button {
 .dashboard th,
 .dashboard td {
   padding: 23px 18px;
-  font-size: 20px;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 .dashboard th {
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 800;
   letter-spacing: 0.6px;
 }
 
 .dashboard td button {
   padding: 11px 18px;
-  font-size: 17px;
+  font-size: 18px;
+  font-weight: 600;
   border-radius: 10px;
 }
 
@@ -829,7 +834,9 @@ button {
   }
 
   .app-title-header {
+    width: calc(100% + 28px);
     min-height: 115px;
+    margin: 0 -14px 25px;
     padding: 20px 16px;
   }
 
@@ -856,14 +863,20 @@ button {
     width: 100%;
   }
 
+  .table-wrapper {
+    min-height: 0;
+  }
+
   .dashboard th,
   .dashboard td {
     padding: 15px 12px;
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: 600;
   }
 
   .dashboard th {
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 800;
   }
 }
 
